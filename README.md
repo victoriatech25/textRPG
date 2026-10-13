@@ -23,6 +23,7 @@ Rust 언어의 핵심 문법과 철학을 직접 실습하며 배우기 위해 �
 | :--- | :--- |
 | [**GAME_DESIGN.md**](doc/GAME_DESIGN.md) | 게임 개요, 코어 루프(마을-던전-전투-성장), 스탯/데미지 공식, 미정 사항(TBD) 등 게임 기획서 |
 | [**LEARNING_PLAN.md**](doc/LEARNING_PLAN.md) | 게임 기능 구현과 Rust 핵심 문법을 매핑한 단계별 개발 로드맵 |
+| [**RUST_CONCEPTS_GUIDE.md**](doc/RUST_CONCEPTS_GUIDE.md) | 단계별 Rust 핵심 문법, 메모리 모델(소유권/대여), 관용 패턴 및 베스트 프랙티스 개념 학습서 |
 | [**STEP_BY_STEP_GUIDE.md**](doc/STEP_BY_STEP_GUIDE.md) | 각 단계별 목표 기능, Rust 핵심 개념, 코드 예시, 컴파일 에러 주의점, 완료 체크리스트, 응용 과제 |
 | [**STAGE_DECISIONS.md**](doc/STAGE_DECISIONS.md) | 각 단계를 시작할 때 채우는 결정 항목과 세부 기획 체크리스트 (레벨업 표, 아이템 목록, 몬스터 표 등) |
 

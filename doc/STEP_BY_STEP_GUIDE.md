@@ -7,6 +7,7 @@
 > - 예시는 "정답"이 아니라 **방향 제시**입니다. 먼저 직접 작성해 보고, 막힐 때 참고하세요.
 > - 각 코드 블록 첫 줄의 주석(`// 파일: ...`)은 그 코드가 들어갈 파일입니다. **1~6단계는 `src/main.rs` 한 파일**에서 작업하고, **7단계에서 모듈로 분리**합니다.
 > - 각 단계는 **`0. 시작 전: 결정 & 기획`** 으로 시작합니다. [STAGE_DECISIONS.md](STAGE_DECISIONS.md)에서 그 단계의 결정 항목과 세부 기획을 먼저 채운 뒤 구현하세요. 예시 코드는 각 결정 항목의 `기본안`을 따릅니다.
+> - 단계별 Rust 핵심 문법, 메모리 원리 및 모범 사례는 [RUST_CONCEPTS_GUIDE.md](RUST_CONCEPTS_GUIDE.md)를 함께 참고하세요.
 
 ---
 
@@ -27,6 +28,7 @@
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 1단계](STAGE_DECISIONS.md#1단계-입출력--기본-루프)를 채우세요: 게임 제목, 메뉴 번호 표기(`[1]` / `1.`), 문체, 이름 입력 규칙
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 1단계: 기초 문법 & 표준 입출력](RUST_CONCEPTS_GUIDE.md#1단계-기초-문법--표준-입출력)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -36,6 +38,7 @@
 - 번호 입력에 따라 분기 처리 (`2` 입력 시 반복문 종료 및 프로그램 정상 종료)
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 1단계: 기초 문법 & 표준 입출력](RUST_CONCEPTS_GUIDE.md#1단계-기초-문법--표준-입출력)
 - **`cargo init` / `Cargo.toml`**: Cargo 패키지 매니저의 역할과 프로젝트 구조 (`src/main.rs`).
 - **변수 불변성(Immutability)**: Rust의 변수는 기본적으로 불변(`let`). 값을 변경하려면 명시적으로 `let mut` 사용.
 - **문자열 타입의 구분**:
@@ -80,6 +83,7 @@ fn read_line(prompt: &str) -> String {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 2단계](STAGE_DECISIONS.md#2단계-플레이어-스탯)를 채우세요: 스탯 구성, 초기 스탯 수치, 직업 유무, 상태창 레이아웃
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 2단계: 데이터 모델링 - 구조체와 메서드](RUST_CONCEPTS_GUIDE.md#2단계-데이터-모델링---구조체struct와-메서드)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -89,6 +93,7 @@ fn read_line(prompt: &str) -> String {
 - 메인 메뉴에 `[상태 확인]` 추가하여 현재 스탯 출력.
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 2단계: 데이터 모델링 - 구조체와 메서드](RUST_CONCEPTS_GUIDE.md#2단계-데이터-모델링---구조체struct와-메서드)
 - **구조체(`struct`)**: 데이터 필드를 묶는 사용자 정의 타입.
 - **`impl` 블록과 연관 함수(Associated Function)**:
   - `Player::new(...)`: 인스턴스 없이 호출하는 생성자 패턴 (C++/Java의 static 메서드와 유사).
@@ -166,6 +171,7 @@ impl Player {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 3단계](STAGE_DECISIONS.md#3단계-게임-상태--마을-메뉴)를 채우세요: `GameState` 목록, **마을 메뉴 최종 번호**, 여관 이용료, 상태 전이도
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 3단계: 타입 기반 상태 제어 - 열거형 & 패턴 매칭](RUST_CONCEPTS_GUIDE.md#3단계-타입-기반-상태-제어---열거형enum--패턴-매칭)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -176,6 +182,7 @@ impl Player {
 - 마을 메뉴에서 `[여관 휴식]`, `[상태 확인]`이 실제로 동작하도록 `Player`를 넘겨받기.
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 3단계: 타입 기반 상태 제어 - 열거형 & 패턴 매칭](RUST_CONCEPTS_GUIDE.md#3단계-타입-기반-상태-제어---열거형enum--패턴-매칭)
 - **열거형(`enum`)**: 가능한 여러 상태 중 단 하나만을 표현하는 타입. Rust의 enum은 각 변형(variant)에 데이터를 포함할 수도 있음 (5단계 `Item`에서 사용).
 - **`match` 표현식과 완전성(Exhaustiveness)**: 모든 경우의 수를 처리하지 않으면 컴파일 거부 → 버그 원천 차단.
 - **`Option<T>`과 `Result<T, E>`**:
@@ -272,6 +279,7 @@ fn main() {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 4단계](STAGE_DECISIONS.md#4단계-턴제-전투--성장)를 채우세요: 데미지 공식, 턴 순서, 도망 규칙, **사망 처리**, **레벨업 테이블**, 전투 메시지
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 4단계: Rust의 심장 - 소유권 & 대여](RUST_CONCEPTS_GUIDE.md#4단계-rust의-심장---소유권ownership--대여borrowing)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -285,6 +293,7 @@ fn main() {
 - 데미지 공식 단위 테스트 작성 (`cargo test`).
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 4단계: Rust의 심장 - 소유권 & 대여](RUST_CONCEPTS_GUIDE.md#4단계-rust의-심장---소유권ownership--대여borrowing)
 - **소유권(Ownership) 규칙** (공식 3규칙):
   1. Rust의 각 값은 소유자(Owner)를 가진다.
   2. 한 번에 소유자는 단 하나뿐이다.
@@ -471,6 +480,7 @@ mod tests {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 5단계](STAGE_DECISIONS.md#5단계-아이템-상점-인벤토리)를 채우세요: **아이템 목록과 가격**, 방어구 효과, 인벤토리 표시 방식, 상점 흐름
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 5단계: 컬렉션 & 데이터 복합화 - Vec & 소유권 이동](RUST_CONCEPTS_GUIDE.md#5단계-컬렉션--데이터-복합화---vec--소유권-이동)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -483,6 +493,7 @@ mod tests {
 - 공격력/방어력은 `기본 스탯 + 장비 보너스`로 계산 (`total_atk()`, `total_def()`).
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 5단계: 컬렉션 & 데이터 복합화 - Vec & 소유권 이동](RUST_CONCEPTS_GUIDE.md#5단계-컬렉션--데이터-복합화---vec--소유권-이동)
 - **데이터를 품은 열거형**: `Item::Potion(Potion)`처럼 변형마다 다른 데이터를 가짐. 무기 슬롯 타입을 `Option<Weapon>`으로 하면 "무기 슬롯에 포션이 들어가는" 잘못된 상태를 **타입 차원에서 불가능**하게 만들 수 있습니다.
 - **벡터(`Vec<T>`)**: 힙 메모리에 동적으로 크기가 늘어나는 배열.
 - **소유권 이동(Move Semantics)**:
@@ -640,6 +651,7 @@ fn equipping_weapon_returns_old_one_to_inventory() {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 6단계](STAGE_DECISIONS.md#6단계-트레이트--스킬)를 채우세요: **스킬 도입 여부와 목록**, 트레이트에 포함할 범위, 전투 메뉴 최종안
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 6단계: 추상화와 다형성 - 트레이트](RUST_CONCEPTS_GUIDE.md#6단계-추상화와-다형성---트레이트trait)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -648,6 +660,7 @@ fn equipping_weapon_returns_old_one_to_inventory() {
 - `print_status()`를 표준 트레이트 `Display` 구현으로 대체 (`println!("{}", player)`).
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 6단계: 추상화와 다형성 - 트레이트](RUST_CONCEPTS_GUIDE.md#6단계-추상화와-다형성---트레이트trait)
 - **트레이트(`trait`)**: 특정 타입이 구현해야 하는 기능(메서드 시그니처)을 정의하는 인터페이스.
 - **기본 구현(Default Implementation)**: 트레이트 메서드에 기본 구현을 두어 중복 코드 제거.
 - **정적 디스패치 & 트레이트 바운드**: `fn attack<A: Combatant, D: Combatant>(attacker: &A, defender: &mut D)` — 컴파일 시점에 타입별로 코드가 생성됨.
@@ -729,6 +742,7 @@ impl std::fmt::Display for Player {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 7단계](STAGE_DECISIONS.md#7단계-던전--최종-보스)를 채우세요: **던전 진행 규칙**, 층별 몬스터 표, 보스 패턴, 중간 보스·이벤트, 밸런스 검증표
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 7단계: 대규모 모듈 구성 - 모듈 시스템](RUST_CONCEPTS_GUIDE.md#7단계-대규모-모듈-구성---모듈-시스템module-system)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -744,6 +758,7 @@ impl std::fmt::Display for Player {
 - 전체 흐름을 주관하는 `Game` 구조체로 상태 관리 정리.
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 7단계: 대규모 모듈 구성 - 모듈 시스템](RUST_CONCEPTS_GUIDE.md#7단계-대규모-모듈-구성---모듈-시스템module-system)
 - **모듈 시스템(`mod`, `pub`, `use`, `crate`, `super`)**:
   - `main.rs`에 `mod player;`를 선언하면 컴파일러가 `src/player.rs`를 찾아 모듈로 포함.
   - 다른 모듈의 항목은 `pub`이어야 접근 가능. 크레이트 내부에만 공개하려면 `pub(crate)`.
@@ -865,6 +880,7 @@ impl Game {
 
 ### 0. 시작 전: 결정 & 기획
 > 🔀 코딩 전에 [STAGE_DECISIONS.md › 8단계](STAGE_DECISIONS.md#8단계-세이브--로드)를 채우세요: 저장 시점, 슬롯, 사망 시 세이브 처리, 저장 데이터 명세, 타이틀 메뉴
+> 📖 **Rust 핵심 개념 학습**: [RUST_CONCEPTS_GUIDE.md › 8단계: 견고한 영속화 - 에러 전파 & 파일 I/O & 직렬화](RUST_CONCEPTS_GUIDE.md#8단계-견고한-영속화---에러-전파--파일-io--직렬화)
 > 아래 예시 코드는 각 항목의 `기본안`을 따릅니다. 다르게 결정했다면 결정에 맞게 바꿔서 구현합니다.
 
 ### 1. 목표 기능
@@ -873,6 +889,7 @@ impl Game {
 - 세이브 파일이 없거나 깨졌을 때 프로그램이 죽지 않고 안내 메시지 출력 후 새 게임 시작.
 
 ### 2. Rust 핵심 개념
+> 💡 상세 설명 및 개념 학습: [RUST_CONCEPTS_GUIDE.md › 8단계: 견고한 영속화 - 에러 전파 & 파일 I/O & 직렬화](RUST_CONCEPTS_GUIDE.md#8단계-견고한-영속화---에러-전파--파일-io--직렬화)
 - **직렬화/역직렬화 (`serde`, `serde_json`)**: 구조체를 JSON 문자열로 변환하고 복원.
   - 저장할 **모든 타입**(`Player`, `Item`, `Potion`, `Weapon`, `Armor`, `Dungeon`)에 `#[derive(Serialize, Deserialize)]`가 필요합니다.
 - **파일 I/O**: `std::fs::write`, `std::fs::read_to_string`.
