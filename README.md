@@ -21,35 +21,31 @@ Rust 언어의 핵심 문법과 철학을 직접 실습하며 배우기 위해 �
 
 | 문서명 | 설명 |
 | :--- | :--- |
-| [**GAME_DESIGN.md**](doc/GAME_DESIGN.md) | 게임 개요, 코어 루프(마을-던전-전투-성장), 스탯/데미지 공식 등 게임 기획서 |
+| [**GAME_DESIGN.md**](doc/GAME_DESIGN.md) | 게임 개요, 코어 루프(마을-던전-전투-성장), 스탯/데미지 공식, 미정 사항(TBD) 등 게임 기획서 |
 | [**LEARNING_PLAN.md**](doc/LEARNING_PLAN.md) | 게임 기능 구현과 Rust 핵심 문법을 매핑한 단계별 개발 로드맵 |
-| [**STEP_BY_STEP_GUIDE.md**](doc/STEP_BY_STEP_GUIDE.md) | 각 단계별 목표 기능, Rust 핵심 개념, 코드 예시 및 컴파일 에러 주의점 가이드 |
+| [**STEP_BY_STEP_GUIDE.md**](doc/STEP_BY_STEP_GUIDE.md) | 각 단계별 목표 기능, Rust 핵심 개념, 코드 예시, 컴파일 에러 주의점, 완료 체크리스트, 응용 과제 |
+| [**STAGE_DECISIONS.md**](doc/STAGE_DECISIONS.md) | 각 단계를 시작할 때 채우는 결정 항목과 세부 기획 체크리스트 (레벨업 표, 아이템 목록, 몬스터 표 등) |
 
 ---
 
-## 🗺️ 단계별 개발 및 학습 로드맵
+## 🗺️ 단계별 개발 및 학습 로드맵 & 진행 상황
 
-```
-[1단계] 입출력 & 변수 (기본 루프)
-   │
-[2단계] 구조체(Struct) & 메서드 (플레이어 스탯)
-   │
-[3단계] 열거형(Enum) & 패턴 매칭 (게임 상태 전환)
-   │
-[4단계] 모듈화 & 대여(Borrowing) (턴제 전투 & 몬스터)
-   │
-[5단계] 컬렉션(Vec) & 소유권 이동(Move) (인벤토리 & 아이템)
-   │
-[6단계] 트레이트(Trait) (공통 엔티티 추상화)
-   │
-[7단계] 던전 층(Floor) & 최종 보스전 (게임 완성)
-   │
-[8단계] (심화) 세이브/로드 & 에러 핸들링 (Serde & File I/O)
-```
+| 단계 | 게임 기능 | Rust 핵심 개념 | 진행 |
+| :---: | :--- | :--- | :---: |
+| 1 | 이름 입력, 메인 메뉴 루프 | `let`/`mut`, `String`/`&str`, `stdin`, `loop` | ⬜ |
+| 2 | 플레이어 스탯, 상태창 | `struct`, `impl`, `&self`/`&mut self` | ⬜ |
+| 3 | 게임 상태 전환, 입력 검증 | `enum`, `match`, `Option`/`Result` | ⬜ |
+| 4 | 몬스터 & 턴제 전투 | 소유권/대여, `rand` 크레이트, 단위 테스트 | ⬜ |
+| 5 | 인벤토리, 상점, 장비 | `Vec`, 소유권 이동(Move), 이터레이터/클로저 | ⬜ |
+| 6 | 전투 엔티티 공통화 | `trait`, 제네릭, `dyn`, `Display` | ⬜ |
+| 7 | 모듈 분리, 던전 1~5층, 최종 보스 | `mod`/`pub`/`use`, 캡슐화 | ⬜ |
+| 8 | (심화) 세이브/로드 | `serde`, 파일 I/O, 커스텀 에러, `?` | ⬜ |
+
+> 단계를 시작할 때 [STAGE_DECISIONS.md](doc/STAGE_DECISIONS.md)에서 결정과 기획을 먼저 채우고, 단계를 마치면 ⬜를 ✅로 바꿔 진행 상황을 기록합니다.
 
 ---
 
-## 🛠️ 실행 방법 (예정)
+## 🛠️ 실행 방법
 
 Rust 컴파일러와 Cargo가 설치되어 있어야 합니다.
 
@@ -59,9 +55,12 @@ cargo run
 
 # 릴리즈 빌드 실행
 cargo run --release
+
+# 테스트 실행 (4단계부터)
+cargo test
 ```
 
 ---
 
 ## 📜 라이선스
-MIT License
+[MIT License](LICENSE)
