@@ -34,7 +34,7 @@
 ### 1. 목표 기능
 - 터미널에 게임 시작 타이틀 화면 출력
 - 플레이어의 이름 입력받기 (`stdin`)
-- 메인 루프에서 메뉴 출력: `[1] 모험 시작`, `[2] 게임 종료`
+- 메인 루프에서 메뉴 출력: `[1] 새로운 모험 시작`, `[2] 게임 종료`
 - 번호 입력에 따라 분기 처리 (`2` 입력 시 반복문 종료 및 프로그램 정상 종료)
 
 ### 2. Rust 핵심 개념
@@ -73,9 +73,10 @@ fn read_line(prompt: &str) -> String {
 - [ ] `cargo run`으로 실행하면 타이틀과 이름 입력 프롬프트가 나온다.
 - [ ] `2`를 입력하면 프로그램이 정상 종료된다.
 - [ ] `1`, `2` 이외의 값(빈 입력, 문자 등)을 넣어도 프로그램이 죽지 않는다.
+- [ ] 이름이 비었거나 10자를 넘으면 안내 문구를 출력하고 다시 입력받는다. 한글 10자도 통과한다. (`D1-4`)
 
 ### 6. 응용 과제
-- 이름에 빈 문자열이 들어오면 다시 입력받도록 만들어 보세요. (`String::is_empty()`)
+- `loop`의 `break 값` 문법으로 "올바른 이름이 들어올 때까지 반복"을 변수 하나에 담아 보세요. (`let name = loop { ... };`)
 
 ---
 
@@ -214,10 +215,10 @@ pub enum GameState {
 
 fn handle_town_menu(player: &mut Player) -> GameState {
     println!("\n[마을 거점]");
-    println!("1. 던전 입장");
-    println!("2. 여관에서 휴식 (HP/MP 회복)");
-    println!("3. 상태 확인");
-    println!("4. 게임 종료");
+    println!("[1] 던전 입장");
+    println!("[2] 여관에서 휴식 (HP/MP 회복)");
+    println!("[3] 상태 확인");
+    println!("[4] 게임 종료");
 
     match read_choice("선택 > ", 4) {
         Some(1) => GameState::Dungeon,
@@ -375,7 +376,7 @@ pub fn execute_combat(player: &mut Player, monster: &mut Monster) -> BattleResul
     loop {
         println!("\n[{} HP: {}/{}]  VS  [{} HP: {}/{}]",
             player.name, player.hp, player.max_hp, monster.name, monster.hp, monster.max_hp);
-        println!("1. 공격  |  2. 도망");
+        println!("[1] 공격  |  [2] 도망");
 
         // --- 플레이어 턴 ---
         match read_choice("행동 선택 > ", 2) {
